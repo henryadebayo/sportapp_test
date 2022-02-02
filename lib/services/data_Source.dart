@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'package:sportapp_test/models/soccer_model.dart';
 
 
 class SoccerApi{
@@ -13,4 +17,15 @@ static const headers = {
  'x-rapidapi-key': api_key
 };
 
+
+Future<List<SoccerModel>> getAllMatches() async{
+ Response response = await get(Uri.parse(apiUrl), headers: headers);
+  var body;
+   if(response.statusCode == 200){
+    body = jsonDecode(response.body);
+    List<dynamic> matchList = body['response'];
+    print(body);
+   }
+   return body;
+}
 }
