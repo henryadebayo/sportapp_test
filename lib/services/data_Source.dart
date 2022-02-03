@@ -30,6 +30,5 @@ Future<List<SoccerModel>?> getAllMatches() async{
     List<SoccerModel> matches = matchList.map((dynamic item) => SoccerModel.fromJson(item)).toList();
     return matches;
    }
-   dznonvdz
 }
 }
