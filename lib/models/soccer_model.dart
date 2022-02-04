@@ -6,7 +6,7 @@ class SoccerModel{
   Team? home;
   Team? away;
   Goal? goal;
-  SoccerModel({this.goal, this.fixture, this.away, this.home});
+  SoccerModel({this.goal, this.fixture, this.away,this.home});
    factory SoccerModel.fromJson(Map<String, dynamic>json){
      return SoccerModel(
        fixture: Fixture.fromJson(json['fixture']),

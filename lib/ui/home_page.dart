@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sportapp_test/services/data_Source.dart';
+import 'package:sportapp_test/widgets/page_body.dart';
 
 
 
@@ -30,6 +32,18 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
       centerTitle: true,
         title: Text("Sport App"),
+      ),
+      body: FutureBuilder(
+        future: SoccerApi().getAllMatches(),
+        builder: (context, snapshot){
+          if(snapshot.hasData){
+            return pageBody(snapshot.data)
+          }else {
+            return Center(child: CircularProgressIndicator(),
+            );
+          }
+        }
+
       ),
     );
   }
