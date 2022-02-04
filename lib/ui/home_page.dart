@@ -4,14 +4,8 @@ import 'package:sportapp_test/services/data_Source.dart';
 import 'package:sportapp_test/widgets/page_body.dart';
 
 
-
-
-
-
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const MyHomePage({Key? key,}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -37,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
         future: SoccerApi().getAllMatches(),
         builder: (context, snapshot){
           if(snapshot.hasData){
-            return pageBody(snapshot.data)
+            return pageBody(snapshot.data as List<SoccerApi>);
           }else {
             return Center(child: CircularProgressIndicator(),
             );
